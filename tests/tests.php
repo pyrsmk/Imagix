@@ -92,3 +92,23 @@ $minisuite->group('Imagix\Adapter',function($minisuite){
 			  ->doesNotThrow();
 
 });
+
+########################################################### Imagix\Adapter
+
+$minisuite->group('Adapter\'s methods access from factory',function($minisuite){
+
+	$image=Imagix\Factory::forge('images/image.png');
+
+	$minisuite->expects('getContents()')
+			  ->that($image->getContents())
+			  ->isNotNull();
+
+	$minisuite->expects('getExtension()')
+			  ->that($image->getExtension())
+			  ->isNotNull();
+
+	$minisuite->expects('getMimetype()')
+			  ->that($image->getMimetype())
+			  ->isNotNull();
+
+});

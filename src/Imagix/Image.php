@@ -75,21 +75,27 @@ class Image{
 			Imagix
 	*/
 	public function __call($name,$parameters){
-		// Verify name
-		$name=ucfirst(strtolower((string)$name));
-		if($name=='abstracteffect' || $name=='exception'){
-			throw new Exception("'$name' is not a valid effect");
+		// Verify if it's not an adapter method that was called
+		if(method_exists($this->adapter,$name)){
+			call_user_func_array(array($this->adapter,$name),$parameters);
 		}
-		// Instantiate effect plugin
-		$class='\Imagix\Effect\\'.$name;
-		$effect=new $class;
-		// Verify class
-		if(!is_subclass_of($effect,'\Imagix\Effect\AbstractEffect')){
-			throw new Exception("Cannot apply '$name' effect, '$class' must extends 'Imagix\Effect\AbstractEffect'");
+		else{
+			// Verify name
+			$name=ucfirst(strtolower((string)$name));
+			if($name=='abstracteffect' || $name=='exception'){
+				throw new Exception("'$name' is not a valid effect");
+			}
+			// Instantiate effect plugin
+			$class='\Imagix\Effect\\'.$name;
+			$effect=new $class;
+			// Verify class
+			if(!is_subclass_of($effect,'\Imagix\Effect\AbstractEffect')){
+				throw new Exception("Cannot apply '$name' effect, '$class' must extends 'Imagix\Effect\AbstractEffect'");
+			}
+			// Apply effect
+			array_unshift($parameters,$this->adapter->getResource());
+			$this->adapter->setResource(call_user_func_array(array($effect,'apply'),$parameters));
 		}
-		// Apply effect
-		array_unshift($parameters,$this->adapter->getResource());
-		$this->adapter->setResource(call_user_func_array(array($effect,'apply'),$parameters));
 		return $this;
 	}
 
