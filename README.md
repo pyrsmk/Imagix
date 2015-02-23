@@ -14,7 +14,7 @@ You can install it with [Composer](https://getcomposer.org/) or import it in you
 ```json
 {
     "require": {
-        "pyrsmk/imagix": "0.5.*"
+        "pyrsmk/imagix": "~0.5"
     }
 }
 ```
