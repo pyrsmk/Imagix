@@ -88,7 +88,7 @@ There's more than 30 sugar effects you can use. Some of them are only available 
 - [#] noise(`$level=5`) : add noise to the image
 - [*] pixelate(`$block_size=2`,`$advanced=true`) : pixelate the image 
 - ratio(`$w_ratio`,`$h_ratio`,`$position=CENTERED`) : apply a ratio to the image; supports `CENTERED` (by default), `TOP`, `RIGHT`, `BOTTOM` and `LEFT` constants as position
-- resize(`$width`,`$height`,`$keep_ratio=true`) : resize the image; if `$keep_ratio` is `true` it will consider the specified resolution as the maximum resolution to reach (explicitly, your image may not be of the size you specified)
+- resize(`$width`,`$height`,`$keep_ratio=true`) : resize the image; if `$keep_ratio` is `true` it will consider the specified resolution as the maximum resolution to reach (explicitly, your image may not be of the size you specified); you can only pass a percent value for the `width` parameter to resize your image directly with a ratio
 - [*] rotate(`$angle`,`$background='#FFFFFF'`) : rotate the image by the specified angle
 - [#] scatter(`$level=1`) : apply a scatter effect
 - screen() : apply a screen effect
