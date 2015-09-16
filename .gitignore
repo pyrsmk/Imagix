@@ -3,5 +3,6 @@ vendor/
 tests/vendor/
 tests/composer.lock
 tests/effects/*/*.jpg
+tests/effects/*/*.gif
 tests/effects/*/Thumbs.db
 tests/images/Thumbs.db
