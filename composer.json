@@ -21,11 +21,11 @@
 	},
 	"archive": {
 		"exclude": [
-			".git/",
-			".gitignore",
-			"tests/",
-			"vendor/",
-			"composer.*"
+			"/.git",
+			"/.gitignore",
+			"/tests",
+			"/vendor",
+			"/composer.*"
 		]
 	}
 }
