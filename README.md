@@ -8,16 +8,13 @@ Imagix is a library, based on GD, that aims to simplify the use of effects on im
 
 Install
 -------
-
-You can install it with [Composer](https://getcomposer.org/) or import it in your project directly.
+Pick up the source or install it with [Composer](https://getcomposer.org/) :
 
 ```json
-{
-    "require": {
-        "pyrsmk/imagix": "~0.5"
-    }
-}
+composer require pyrsmk/imagix
 ```
+
+If you're not installing it with Composer, don't forget to load its dependencies too : [Chernozem](https://github.com/pyrsmk/Chernozem), [Funktions](https://github.com/pyrsmk/Funktions).
 
 Instantiating
 -------------
