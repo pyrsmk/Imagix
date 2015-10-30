@@ -1,9 +1,7 @@
-composer.lock
-vendor/
+node_modules/
 tests/vendor/
 tests/composer.lock
+composer.lock
+vendor/
 tests/effects/*/*.jpg
-tests/effects/*/*.gif
 tests/effects/*/*.png
-tests/effects/*/Thumbs.db
-tests/images/Thumbs.db
