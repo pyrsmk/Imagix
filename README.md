@@ -1,4 +1,4 @@
-Imagix 0.5.6
+Imagix 0.5.7
 ============
 
 Imagix is a library, based on GD, that aims to simplify the use of effects on images. This project is born with two ideas in mind :
@@ -10,7 +10,7 @@ Install
 -------
 Pick up the source or install it with [Composer](https://getcomposer.org/) :
 
-```json
+```
 composer require pyrsmk/imagix
 ```
 

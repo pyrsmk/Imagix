@@ -5,3 +5,4 @@ composer.lock
 vendor/
 tests/effects/*/*.jpg
 tests/effects/*/*.png
+tests/**/Thumbs.db
