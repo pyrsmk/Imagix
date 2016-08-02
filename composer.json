@@ -11,7 +11,6 @@
 	"require": {
 		"php": ">=5.3.0",
 		"ext-gd": "*",
-		"pyrsmk/chernozem": "3.0.*",
 		"pyrsmk/funktions": "0.1.*"
 	},
 	"autoload": {
