@@ -128,14 +128,18 @@ $imagix->save('image.jpg',array(
 ));
 ```
 
-The GIF adapter, otherwise, takes no option.
-
 If you want to export an image to another format :
 
 ```php
 $png_adapter=new Imagix\Adapter\PNG('image.png');
 $image=new Imagix\Image(new Imagix\Adapter\JPEG($png_adapter));
 $image->save('image.jpg');
+```
+
+When processing a lot of images, we advise you to free allocated memory when you're done with one image :
+
+```php
+imagedestroy($imagix->getAdapter()->getResource());
 ```
 
 License
