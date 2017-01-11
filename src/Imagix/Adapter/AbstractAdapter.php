@@ -25,7 +25,7 @@ abstract class AbstractAdapter implements AdapterInterface{
 	public function __construct($spec){
 		// Load file
 		if(is_string($spec)){
-			if(!is_readable($spec)){
+			if(!filter_var($spec, FILTER_VALIDATE_URL) && !is_readable($spec)){
 				throw new Exception("'$spec' is not readable or does not exist");
 			}
 			$this->path=$spec;

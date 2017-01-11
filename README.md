@@ -1,4 +1,4 @@
-Imagix 0.5.8
+Imagix 0.5.9
 ============
 
 Imagix is a library, based on GD, that aims to simplify the use of effects on images. This project is born with two ideas in mind :
