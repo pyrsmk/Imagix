@@ -13,21 +13,21 @@ class Factory{
 		Return
 			Imagix\Image
 	*/
-	static public function forge($path){
-		// Prepare
-		$excludes=array('AbstractAdapter.php','AdapterInterface.php');
-		// Browse adapters
-		foreach(lessdir(__DIR__.'/Adapter') as $file){
-			if(in_array($file,$excludes)){
-				continue;
-			}
-			$class='Imagix\Adapter\\'.pathinfo($file,PATHINFO_FILENAME);
-			if($class::supports($path)){
-				return new Image(new $class($path));
-			}
-		}
-		// No adapter found
-		throw new Exception("'$path' image file is not supported");
+    static public function forge($path){
+        switch(substr(strtolower(pathinfo($path, PATHINFO_EXTENSION)), 0, 3)) {
+            case 'jpg':
+            case 'jpe':
+                return new Image(new Adapter\JPEG($path));
+                break;
+            case 'png':
+                return new Image(new Adapter\PNG($path));
+                break;
+            case 'gif':
+                return new Image(new Adapter\GIF($path));
+                break;
+            default:
+                throw new Exception("'$path' image file is not supported");
+        }
 	}
 	
 }
