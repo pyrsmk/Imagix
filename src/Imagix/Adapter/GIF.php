@@ -19,7 +19,7 @@ class GIF extends AbstractAdapter{
 			resource, false
 	*/
 	protected function loadImage($path){
-		return imagecreatefromgif($path);
+		return @imagecreatefromgif($path);
 	}
 
 	/*
@@ -33,7 +33,7 @@ class GIF extends AbstractAdapter{
 	*/
 	public function getContents(array $options=array()){
 		ob_start();
-		imagegif($this->resource);
+		@imagegif($this->resource);
 		return ob_get_clean();
 	}
 

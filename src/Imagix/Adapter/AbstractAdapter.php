@@ -31,7 +31,7 @@ abstract class AbstractAdapter implements AdapterInterface{
 			$this->path=$spec;
 			$this->resource=$this->loadImage($spec);
 			if(!$this->resource){
-				throw new Exception("Failed to load '$spec', perhaps file is not readable or image contains few errors");
+				throw new Exception("Can't load '$spec': file invalid");
 			}
 		}
 		// Load from another adapter

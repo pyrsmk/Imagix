@@ -19,7 +19,7 @@ class PNG extends AbstractAdapter{
 			resource, false
 	*/
 	protected function loadImage($path){
-		$image=imagecreatefrompng($path);
+		$image=@imagecreatefrompng($path);
 		imagesavealpha($image,true);
 		return $image;
 	}
@@ -37,7 +37,7 @@ class PNG extends AbstractAdapter{
 		$options['quality']=isset($options['quality'])?$options['quality']:9;
 		$options['filters']=isset($options['filters'])?$options['filters']:PNG_NO_FILTER;
 		ob_start();
-		imagepng($this->resource,null,$options['quality'],$options['filters']);
+		@imagepng($this->resource,null,$options['quality'],$options['filters']);
 		return ob_get_clean();
 	}
 

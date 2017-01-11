@@ -19,7 +19,7 @@ class JPEG extends AbstractAdapter{
 			resource, false
 	*/
 	protected function loadImage($path){
-		return imagecreatefromjpeg($path);
+		return @imagecreatefromjpeg($path);
 	}
 
 	/*
@@ -34,7 +34,7 @@ class JPEG extends AbstractAdapter{
 	public function getContents(array $options=array()){
 		$options['quality']=isset($options['quality'])?$options['quality']:80;
 		ob_start();
-		imagejpeg($this->resource,null,$options['quality']);
+		@imagejpeg($this->resource,null,$options['quality']);
 		return ob_get_clean();
 	}
 
