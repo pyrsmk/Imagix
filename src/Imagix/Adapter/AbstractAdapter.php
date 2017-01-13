@@ -20,7 +20,7 @@ abstract class AbstractAdapter implements AdapterInterface{
 		Constructor
 
 		Parameters
-			string, Imagix\Adapter\AbstractAdapter $spec
+			string, Imagix\Adapter\AbstractAdapter, resource $spec
 	*/
 	public function __construct($spec){
 		// Load file
@@ -43,7 +43,7 @@ abstract class AbstractAdapter implements AdapterInterface{
 			$this->resource=$spec;
 		}
 		else{
-			throw new Exception("Unexpected value encountered, expects a string, a Imagix\AbstractImage child object or a valid GD resource");
+			throw new Exception("Unexpected value encountered, expects a string, a Imagix\AbstractImage child object or a valid resource");
 		}
 	}
 

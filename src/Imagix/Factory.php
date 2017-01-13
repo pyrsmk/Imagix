@@ -14,15 +14,26 @@ class Factory{
 			Imagix\Image
 	*/
     static public function forge($path){
-        switch(substr(strtolower(pathinfo($path, PATHINFO_EXTENSION)), 0, 3)) {
-            case 'jpg':
-            case 'jpe':
+        // Get image mimetype
+        if(filter_var($path, FILTER_VALIDATE_URL)) {
+            $request = curl_init($path);
+            curl_setopt($request, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($request, CURLOPT_NOBODY, true);
+            curl_exec($request);
+            $mimetype = curl_getinfo($request, CURLINFO_CONTENT_TYPE);
+        }
+        else {
+            $mimetype = getimagesize($path)['mime'];
+        }
+        // Load image
+        switch($mimetype) {
+            case 'image/jpeg':
                 return new Image(new Adapter\JPEG($path));
                 break;
-            case 'png':
+            case 'image/png':
                 return new Image(new Adapter\PNG($path));
                 break;
-            case 'gif':
+            case 'image/gif':
                 return new Image(new Adapter\GIF($path));
                 break;
             default:
