@@ -19,6 +19,8 @@ class Factory{
             $request = curl_init($path);
             curl_setopt($request, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($request, CURLOPT_NOBODY, true);
+            curl_setopt($request, CURLOPT_SSL_VERIFYHOST, false);
+            curl_setopt($request, CURLOPT_SSL_VERIFYPEER, false);
             curl_exec($request);
             $mimetype = curl_getinfo($request, CURLINFO_CONTENT_TYPE);
         }

@@ -1,7 +1,7 @@
 {
 	"name": "pyrsmk/imagix",
 	"description": "The simple image effects library",
-	"keywords": ["image","effect","manipulation","handling"],
+	"keywords": ["image", "effect", "resize", "crop"],
 	"license": "MIT",
 	"authors": [{
 		"name": "Aurélien Delogu",
@@ -11,11 +11,12 @@
 	"require": {
 		"php": ">=5.3.0",
 		"ext-gd": "*",
+        "ext-curl": "*",
 		"pyrsmk/funktions": "0.1.*"
 	},
 	"autoload": {
-		"psr-0" : {
-			"" : "src/"
+		"psr-4" : {
+			"Imagix\\" : "src/"
 		}
 	}
 }
