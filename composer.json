@@ -11,8 +11,7 @@
 	"require": {
 		"php": ">=5.3.0",
 		"ext-gd": "*",
-        "ext-curl": "*",
-		"pyrsmk/funktions": "0.1.*"
+		"pyrsmk/funktions": "0.2.*"
 	},
 	"autoload": {
 		"psr-4" : {
